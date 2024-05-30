@@ -10,12 +10,15 @@ import { TbWorld } from "react-icons/tb";
 export default function Table({ data }: any) {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    OrgName: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    OpporName: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    "Org Name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    "Oppor Name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     Location: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    DateTime: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    "Date of Event": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
     // OpporType: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    AgeGroup: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    "What is the suggested age group?": {
+      value: null,
+      matchMode: FilterMatchMode.STARTS_WITH,
+    },
   });
 
   type RowData = {
