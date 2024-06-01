@@ -227,7 +227,7 @@ export default function Table({ data }: any) {
                 </p>
                 <p>
                   <a
-                    className="text-sm font-medium text-blue-900"
+                    className="text-sm font-medium text-blue-800"
                     href={rowData ? rowData["Link"] : ""}
                     target="_blank"
                   >
