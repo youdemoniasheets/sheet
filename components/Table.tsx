@@ -226,7 +226,11 @@ export default function Table({ data }: any) {
                   {rowData ? rowData["Detailed description of the event"] : ""}
                 </p>
                 <p>
-                  <a className="text-sm font-medium text-blue-900" href={rowData?rowData["Link"]:""}>
+                  <a
+                    className="text-sm font-medium text-blue-900"
+                    href={rowData ? rowData["Link"] : ""}
+                    target="_blank"
+                  >
                     Link to More Info
                   </a>
                 </p>
