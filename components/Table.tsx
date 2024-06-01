@@ -37,6 +37,7 @@ export default function Table({ data }: any) {
     "Date of Event": Date;
     "Time of Event": Date;
     "Detailed description of the event": string;
+    Link: string;
     // Add other properties if necessary
   };
 
@@ -224,6 +225,11 @@ export default function Table({ data }: any) {
                 <p className="text-sm font-semibold">
                   {rowData ? rowData["Detailed description of the event"] : ""}
                 </p>
+                <p>
+                  <a className="text-sm font-medium text-blue-900" href={rowData?rowData["Link"]:""}>
+                    Link to More Info
+                  </a>
+                </p>
               </div>
             </div>
           );
@@ -233,6 +239,9 @@ export default function Table({ data }: any) {
         onHide={() => setMoreInfoVisible(false)}
       >
         {/* <p>{`${rowData?.Location},`}</p> */}
+
+        <p></p>
+
         <p>
           Opportunity Type :{" "}
           <b>{`${rowData ? rowData["Opportunity Type"] : ""}`}</b>
