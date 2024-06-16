@@ -24,8 +24,6 @@ export default function Home() {
         const val = snapshot.val();
         if (val) {
           setData(Object.values(val));
-
-          console.log(Object.values(val));
         } else {
           // Handle the case when snapshot.val() is null or undefined
           console.error("Snapshot value is null or undefined.");

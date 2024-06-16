@@ -10,14 +10,14 @@ import { TbWorld } from "react-icons/tb";
 export default function Table({ data }: any) {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    "Org Name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    "Oppor Name": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    Location: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    "Date of Event": { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    // OpporType: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
+    "Org Name": { value: null, matchMode: FilterMatchMode.CONTAINS },
+    "Oppor Name": { value: null, matchMode: FilterMatchMode.CONTAINS },
+    Location: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    "Date of Event": { value: null, matchMode: FilterMatchMode.CONTAINS },
+    // OpporType: { value: null, matchMode: FilterMatchMode.CONTAINS},
     "What is the suggested age group?": {
       value: null,
-      matchMode: FilterMatchMode.STARTS_WITH,
+      matchMode: FilterMatchMode.CONTAINS,
     },
   });
 
@@ -103,7 +103,7 @@ export default function Table({ data }: any) {
             >
               <div className="flex flex-row justify-between items-center">
                 {rowData.Location !== ""
-                  ? rowData.Location
+                  ? rowData.Location +", " + rowData["City, State"]
                   : rowData["City, State"] !== ""
                   ? rowData["City, State"]
                   : "Online"}
@@ -143,7 +143,6 @@ export default function Table({ data }: any) {
           body={(rowData) => (
             <div
               onClick={() => {
-                console.log(rowData);
                 setRowData(rowData);
                 setMoreInfoVisible(true);
               }}
