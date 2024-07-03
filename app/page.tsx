@@ -23,7 +23,18 @@ export default function Home() {
       onValue(dbRef, (snapshot) => {
         const val = snapshot.val();
         if (val) {
-          setData(Object.values(val));
+          const dataToUpdate = Object.values(val);
+          const updatedData = dataToUpdate.map((item: any) => {
+            if (item.Location && item["City, State"]) {
+              item.Location = `${item.Location}, ${item["City, State"]}`;
+            } else if (item["City, State"]) {
+              item.Location = item["City, State"];
+            } else {
+              item.Location = "Online";
+            }
+            return item;
+          });
+          setData(updatedData);
         } else {
           // Handle the case when snapshot.val() is null or undefined
           console.error("Snapshot value is null or undefined.");

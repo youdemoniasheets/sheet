@@ -47,6 +47,24 @@ export default function Table({ data }: any) {
   const [locationVisible, setLocationVisible] = useState(false);
   const [moreInfoVisible, setMoreInfoVisible] = useState(false);
 
+  // const getLocationDisplayText = (rowData: RowData) => {
+  //   if (rowData.Location && rowData["City, State"]) {
+  //     return `${rowData.Location}, ${rowData["City, State"]}`;
+  //   } else if (rowData["City, State"]) {
+  //     return rowData["City, State"];
+  //   } else {
+  //     return "Online";
+  //   }
+  // };
+
+  const getLocationIcon = (rowData: RowData) => {
+    return rowData.Location && rowData["City, State"] ? (
+      <FaPlusCircle color="#511660" />
+    ) : (
+      <TbWorld color="#0da3d1" />
+    );
+  };
+
   return (
     <div>
       <DataTable
@@ -102,16 +120,8 @@ export default function Table({ data }: any) {
               }}
             >
               <div className="flex flex-row justify-between items-center">
-                {rowData.Location !== ""
-                  ? rowData.Location +", " + rowData["City, State"]
-                  : rowData["City, State"] !== ""
-                  ? rowData["City, State"]
-                  : "Online"}
-                {rowData.Location !== "" && rowData["City, State"] !== "" ? (
-                  <FaPlusCircle color="#511660" />
-                ) : (
-                  <TbWorld color="#0da3d1" />
-                )}
+                {rowData.Location} 
+                {getLocationIcon(rowData)}
               </div>
             </div>
           )}
